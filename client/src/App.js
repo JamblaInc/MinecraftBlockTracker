@@ -1,12 +1,12 @@
 import React from "react";
 import Layout from "./components/Layout/Layout";
-import VotePanel from "./components/VotePanel/VotePanel";
+import BlockTable from "./components/BlockTable/BlockTable";
 
 function App() {
   return (
     <div>
       <Layout>
-        <VotePanel />
+        <BlockTable />
       </Layout>
     </div>
   );

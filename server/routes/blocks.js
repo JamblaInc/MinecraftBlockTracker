@@ -48,9 +48,9 @@ router.post("/used", async (req, res) => {
 router.get("/list", async (req, res) => {
   try {
     const blocks = await pool.query(
-      "SELECT block_name, img_url, is_used, is_collected FROM system.blocks"
+      "SELECT block_name, img_url, is_used, is_collected FROM system.blocks ORDER BY block_name ASC"
     );
-    console.log(blocks.rows);
+
     res.json(blocks.rows);
   } catch (error) {
     console.log(error.message);
