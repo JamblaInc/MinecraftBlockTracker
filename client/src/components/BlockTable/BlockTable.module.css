@@ -1,3 +1,7 @@
-.VotePanel {
-  max-width: 1000px;
+.BlockTable {
+  text-align: center;
+}
+
+.Title {
+  color: rgb(255, 248, 239);
 }

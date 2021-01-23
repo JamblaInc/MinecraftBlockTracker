@@ -1,22 +1,23 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
 import classes from "./BlockPanel.module.css";
 import InputGroup from "react-bootstrap/InputGroup";
-
-import myimg from "../../../assets/images/Yellow Dye.png";
 
 const BlockPanel = (props) => {
   return (
     <>
-      <tr>
+      <tr
+        className={props.is_collected ? classes.Collected : ""}
+        onClick={() => props.set_collected(props.id, !props.is_collected)}
+      >
         <td>
-          <img src={myimg} />
+          <img
+            src={require(`../../../assets/images/${props.block_name}.png`)}
+            alt={props.block_name}
+          />
         </td>
         <td>{props.block_name}</td>
-        <td>
-          <InputGroup.Checkbox />
-        </td>
+
         <td>
           <Button>{props.is_used ? "Remove" : "Add"}</Button>
         </td>

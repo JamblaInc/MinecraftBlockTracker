@@ -8,11 +8,12 @@ import Row from "react-bootstrap/Row";
 const VotePanel = (props) => {
   const [blocks, setBlocks] = useState([
     {
-      block_name: "Acacia Button",
+      block_uuid: "fd1a4996-c68d-4fe2-8f53-ab0b324fcf71",
+      block_name: "Acacia Boat",
       img_url:
-        "https://www.digminecraft.com/mechanism_recipes/images/acacia_button.png",
-      is_used: true,
-      is_collected: false,
+        "https://www.digminecraft.com/transportation_recipes/images/acacia_boat.png",
+      is_used: false,
+      is_collected: true,
     },
   ]);
 
@@ -30,7 +31,6 @@ const VotePanel = (props) => {
       const parseRes = await response.json();
 
       setBlocks(parseRes);
-      console.log(parseRes);
     } catch (error) {
       console.log(`Error message: ${error.message}`);
     }
@@ -77,24 +77,27 @@ const VotePanel = (props) => {
   }
 
   return (
-    <Container className={classes.VotePanel}>
+    <Container fluid="sm" className={classes.BlockTable}>
+      <h1 className={classes.Title}>Block Hunt Progress Tracker</h1>
       <Row>
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
               <th>Image</th>
               <th>Block</th>
-              <th>Collected</th>
               <th>Remove</th>
             </tr>
           </thead>
           <tbody>
             {blocks.map((block, index) => (
               <BlockPanel
-                key={index}
+                key={block.block_uuid}
+                id={block.block_uuid}
                 block_name={block.block_name}
                 is_collected={block.is_collected}
                 is_used={block.is_used}
+                set_collected={setCollected}
+                set_used={setUsed}
               />
             ))}
           </tbody>

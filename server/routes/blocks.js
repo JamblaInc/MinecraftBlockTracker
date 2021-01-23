@@ -48,7 +48,7 @@ router.post("/used", async (req, res) => {
 router.get("/list", async (req, res) => {
   try {
     const blocks = await pool.query(
-      "SELECT block_name, img_url, is_used, is_collected FROM system.blocks ORDER BY block_name ASC"
+      "SELECT block_uuid, block_name, img_url, is_used, is_collected FROM system.blocks ORDER BY block_name ASC"
     );
 
     res.json(blocks.rows);

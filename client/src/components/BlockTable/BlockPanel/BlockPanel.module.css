@@ -1,5 +1,7 @@
-.Button {
-  display: block;
-  margin: 3%;
-  padding: 10%;
+.Collected {
+  background-color: rgb(75, 181, 67) !important;
+}
+
+.Collected:hover {
+  background-color: rgb(91, 221, 81) !important;
 }
