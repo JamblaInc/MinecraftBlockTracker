@@ -13,7 +13,6 @@ const BlockPanel = (props) => {
         <td>
           <img
             src={require(`../../../assets/images/${props.block_name}.png`)}
-            alt={props.block_name}
           />
         </td>
         <td>{props.block_name}</td>
