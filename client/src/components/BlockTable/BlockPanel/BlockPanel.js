@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import classes from "./BlockPanel.module.css";
-import InputGroup from "react-bootstrap/InputGroup";
 
 const BlockPanel = (props) => {
   return (
@@ -11,9 +10,7 @@ const BlockPanel = (props) => {
         onClick={() => props.set_collected(props.id, !props.is_collected)}
       >
         <td>
-          <img
-            src={require(`../../../assets/images/${props.block_name}.png`)}
-          />
+          <img src={props.imgSrc} />
         </td>
         <td>{props.block_name}</td>
 

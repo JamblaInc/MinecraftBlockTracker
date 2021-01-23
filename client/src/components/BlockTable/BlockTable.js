@@ -4,8 +4,9 @@ import classes from "./BlockTable.module.css";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
+import images from "../../assets/images/index";
 
-const VotePanel = (props) => {
+const BlockTable = (props) => {
   const [blocks, setBlocks] = useState([
     {
       block_uuid: "fd1a4996-c68d-4fe2-8f53-ab0b324fcf71",
@@ -98,6 +99,7 @@ const VotePanel = (props) => {
                 is_used={block.is_used}
                 set_collected={setCollected}
                 set_used={setUsed}
+                imgSrc={images[block.block_name + ".png"].default}
               />
             ))}
           </tbody>
@@ -107,4 +109,4 @@ const VotePanel = (props) => {
   );
 };
 
-export default VotePanel;
+export default BlockTable;
