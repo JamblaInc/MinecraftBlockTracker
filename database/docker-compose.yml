@@ -1,0 +1,20 @@
+# Use postgres/example user/password credentials
+version: "3.7"
+
+services:
+  db:
+    container_name: block_database
+    restart: always
+    image: jakep644/only_postgres
+    environment:
+      POSTGRES_USER: ${pgUser}
+      POSTGRES_PASSWORD: ${pgPassword}
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - blockdata:/var/lib/postgresql/data
+    ports:
+      - "${pgPort}:5432"
+
+volumes:
+  blockdata:
+    driver: local

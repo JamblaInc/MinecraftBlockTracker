@@ -1,0 +1,2 @@
+psql -U postgres -h 127.0.0.1 -c "SELECT pid, pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = current_database() AND pid <> pg_backend_pid();"
+psql -U postgres -h 127.0.0.1 -c "DROP DATABASE IF EXISTS rank_it;"
