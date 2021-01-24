@@ -5,19 +5,30 @@ import classes from "./BlockPanel.module.css";
 const BlockPanel = (props) => {
   return (
     <>
-      <tr
-        className={props.is_collected ? classes.Collected : ""}
-        onClick={() => props.set_collected(props.id, !props.is_collected)}
-      >
-        <td>
-          <img src={props.imgSrc} />
-        </td>
-        <td>{props.block_name}</td>
+      {props.show ? (
+        <tr className={props.is_collected ? classes.Collected : ""}>
+          <td
+            onClick={() => props.set_collected(props.id, !props.is_collected)}
+          >
+            <img src={props.imgSrc} alt={props.block_name} />
+          </td>
+          <td
+            onClick={() => props.set_collected(props.id, !props.is_collected)}
+          >
+            {props.block_name}
+          </td>
 
-        <td>
-          <Button>{props.is_used ? "Remove" : "Add"}</Button>
-        </td>
-      </tr>
+          <td>
+            <Button
+              onClick={() => props.set_used(props.id, !props.is_used)}
+              variant="secondary"
+              className={classes.Front}
+            >
+              {props.is_used ? "-" : "+"}
+            </Button>
+          </td>
+        </tr>
+      ) : null}
     </>
   );
 };
