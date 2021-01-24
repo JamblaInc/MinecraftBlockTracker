@@ -21,7 +21,7 @@ const BlockTable = (props) => {
 
   const getBlocks = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:8080/blocks/list", {
+      const response = await fetch("/blocks/list", {
         method: "GET",
       });
 
@@ -60,7 +60,7 @@ const BlockTable = (props) => {
     try {
       const body = { block_id: id, is_collected: is_collected };
 
-      const response = await fetch("http://localhost:8080/blocks/collected", {
+      const response = await fetch("/blocks/collected", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -81,7 +81,7 @@ const BlockTable = (props) => {
     try {
       const body = { block_id: id, is_used: is_used };
 
-      const response = await fetch("http://localhost:8080/blocks/used", {
+      const response = await fetch("/blocks/used", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
