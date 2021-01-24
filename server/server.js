@@ -3,14 +3,16 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const path = require("path");
 
-const PORT = 5000;
+const PORT = process.env.PORT || 8080;
 
 // Middleware
 // Access data from the client side with req.body
 app.use(express.json());
 app.use(cors());
 
+app.use(express.static(path.join(__dirname, "build")));
 // Routes
 app.use("/blocks", require("./routes/blocks"));
 
